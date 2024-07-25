@@ -24,6 +24,10 @@ function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "views", "index.html"));
+});
+
 app.get("/initialize", async (req, res) => {
   // browser = await puppeteer.launch({ headless: false });
   browser = await puppeteer.launch({
